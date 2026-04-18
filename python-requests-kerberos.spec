@@ -15,14 +15,15 @@ Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/requests-kerberos/
 Source0:	https://files.pythonhosted.org/packages/source/r/requests-kerberos/requests-kerberos-%{version}.tar.gz
 # Source0-md5:	51060bc1a7ea8bb2816194619efd7003
+Patch0:		requests-kerberos-requires.patch
 URL:		https://pypi.org/project/requests-kerberos/
 %if %{with python2}
 BuildRequires:	python-modules >= 1:2.7
 BuildRequires:	python-setuptools
 %if %{with tests}
 BuildRequires:	python-cryptography >= 1.3
-BuildRequires:	python-pykerberos >= 1.1.8
-BuildRequires:	python-pykerberos < 2
+BuildRequires:	python-kerberos >= 1.1.8
+BuildRequires:	python-kerberos < 2
 BuildRequires:	python-mock
 BuildRequires:	python-requests >= 1.1.0
 %endif
@@ -32,8 +33,8 @@ BuildRequires:	python3-modules >= 1:3.3
 BuildRequires:	python3-setuptools
 %if %{with tests}
 BuildRequires:	python3-cryptography >= 1.3
-BuildRequires:	python3-pykerberos >= 1.1.8
-BuildRequires:	python3-pykerberos < 2
+BuildRequires:	python3-kerberos >= 1.1.8
+BuildRequires:	python3-kerberos < 2
 BuildRequires:	python3-requests >= 1.1.0
 %endif
 %endif
@@ -71,6 +72,7 @@ i obsługuje wzajemne uwierzytelnianie.
 
 %prep
 %setup -q -n requests-kerberos-%{version}
+%patch -P0 -p1
 
 %build
 %if %{with python2}
