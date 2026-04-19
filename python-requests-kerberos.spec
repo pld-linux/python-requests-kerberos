@@ -2,14 +2,14 @@
 # Conditional build:
 %bcond_with	tests	# unit tests (not in sdist)
 %bcond_without	python2 # CPython 2.x module
-%bcond_without	python3 # CPython 3.x module
+%bcond_with	python3 # CPython 3.x module (built from python3-requests-kerberos.spec)
 
 Summary:	Kerberos authentication handler for python-requests
 Summary(pl.UTF-8):	Obsługa uwierzytelniania Kerberos dla python-requests
 Name:		python-requests-kerberos
 # keep 0.12.x here for python2 support
 Version:	0.12.0
-Release:	1
+Release:	0.1
 License:	ISC
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/requests-kerberos/
